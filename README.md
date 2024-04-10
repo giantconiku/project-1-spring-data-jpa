@@ -23,7 +23,7 @@ Add new Book
 
 http://localhost:8080/books
 
-![Add New Book](BookCRUDApplication\img\addBook.png "Add New Book")
+![Add New Book](BookCRUDApplication/img/addBook.png "Add New Book")
 
 Get All Books
 
@@ -31,7 +31,7 @@ Get All Books
 
 http://localhost:8080/books
 
-![Get All Books](BookCRUDApplication\img\getAllBooks.png "Get All Books")
+![Get All Books](BookCRUDApplication/img/getAllBooks.png "Get All Books")
 
 Get Book By Id
 
@@ -39,7 +39,7 @@ Get Book By Id
 
 http://localhost:8080/books/{id}
 
-![Get Book By Id](BookCRUDApplication\img\getBookById.png "Get Book By Id")
+![Get Book By Id](BookCRUDApplication/img/getBookById.png "Get Book By Id")
 
 Get Book By Title
 
@@ -47,7 +47,7 @@ Get Book By Title
 
 http://localhost:8080/books?title=title
 
-![Get Book By Title](BookCRUDApplication\img\getBookByTitle.png "Get Book By Title")
+![Get Book By Title](BookCRUDApplication/img/getBookByTitle.png "Get Book By Title")
 
 Edit Book
 
@@ -55,7 +55,7 @@ Edit Book
 
 http://localhost:8080/books/{id}
 
-![Edit Book](BookCRUDApplication\img\updateBook.png "Edit Book")
+![Edit Book](BookCRUDApplication/img/updateBook.png "Edit Book")
 
 Delete Book By Id
 
@@ -63,7 +63,7 @@ Delete Book By Id
 
 http://localhost:8080/books/{id}
 
-![Delete Book By Id](BookCRUDApplication\img\deleteBookById.png "Delete Book By Id")
+![Delete Book By Id](BookCRUDApplication/img/deleteBookById.png "Delete Book By Id")
 
 Delete All Books
 
@@ -71,4 +71,4 @@ Delete All Books
 
 http://localhost:8080/books
 
-![Delete All Books](BookCRUDApplication\img\deleteAllBook.png "Delete All Books")
+![Delete All Books](BookCRUDApplication/img/deleteAllBook.png "Delete All Books")
