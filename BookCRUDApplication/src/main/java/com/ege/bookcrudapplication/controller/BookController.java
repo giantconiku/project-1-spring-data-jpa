@@ -11,50 +11,54 @@ import java.util.Collection;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/api/books")
 public class BookController {
 
+    private BookRepository bookRepository;
+
     @Autowired
-    private BookRepository repository;
+    public BookController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
 
     @PostMapping
     public ResponseEntity<Book> addBook(@RequestBody Book book) {
-        return new ResponseEntity<>(repository.save(book), HttpStatus.CREATED);
+        return new ResponseEntity<>(bookRepository.save(book), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<Collection<Book>> getAllBooks() {
-        return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(bookRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Integer id) {
-        return new ResponseEntity<>(repository.findById(id).get(), HttpStatus.OK);
+        return new ResponseEntity<>(bookRepository.findById(id).get(), HttpStatus.OK);
     }
 
     @GetMapping(params = {"title"})
     public ResponseEntity<Collection<Book>> findBookByTitle(@RequestParam(value = "title") String title) {
-        return new ResponseEntity<>(repository.findByTitle(title), HttpStatus.OK);
+        return new ResponseEntity<>(bookRepository.findByTitle(title), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable("id") Integer id, @RequestBody Book book) {
 
-        Optional<Book> optionalBook = repository.findById(id);
+        Optional<Book> optionalBook = bookRepository.findById(id);
         Book currentBook = optionalBook.get();
         currentBook.setTitle(book.getTitle());
         currentBook.setAuthor(book.getAuthor());
 
-        return new ResponseEntity<>(repository.save(currentBook), HttpStatus.OK);
+        return new ResponseEntity<>(bookRepository.save(currentBook), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public void deleteBookById(@PathVariable Integer id) {
-        repository.deleteById(id);
+        bookRepository.deleteById(id);
     }
 
     @DeleteMapping
     public void deleteAllBooks() {
-        repository.deleteAll();
+        bookRepository.deleteAll();
     }
 }
